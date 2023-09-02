@@ -343,8 +343,9 @@ def echo_server():
             with lock:
                 pprint.pprint(player.current_song)
                 player.input(data.decode(), player.current_song)
+                client.send(player.current_song.album_art_url.encode())
             print("Data: %s" %data)
-            client.send(data)
+            #client.send(data)
         # end connection
         #client.close()
 
